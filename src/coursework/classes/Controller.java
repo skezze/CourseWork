@@ -18,14 +18,11 @@ public class Controller {
     {
         queueTable.getColumns().setAll(genQTable());
         rejectedTable.getColumns().setAll(genQTable());
-        doneTable.getColumns().setAll(genQTable());
     }
     @FXML
     TableView<Process> queueTable;
     @FXML
     TableView<Process> rejectedTable;
-    @FXML
-    TableView<Process> doneTable;
 
     ObservableList<Process> qTableList = FXCollections.observableArrayList();
     ObservableList<Process> rTableList = FXCollections.observableArrayList();
@@ -78,8 +75,6 @@ public class Controller {
 
         rejectedTable.setItems(rTableList);
         rejectedTable.refresh();
-        doneTable.setItems(dTableList);
-        doneTable.refresh();
     }
     @FXML
     Button runBTN;
@@ -124,7 +119,6 @@ public class Controller {
         Main.emuThread = new Thread(new TLauncher());
         queueTable.setItems(null);
         rejectedTable.setItems(null);
-        doneTable.setItems(null);
 
         pauseBTN.setDisable(true);
         runBTN.setDisable(false);
