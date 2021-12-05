@@ -70,7 +70,6 @@ public class Queue {
     }
 
     public Process getNextProcess() {
-      //  queue.sort(Process.byPriority.reversed());//todo addreversed
         if(queue.size()!=0) {
             Process _tmp = queue.get(0);
             this.Remove(_tmp);
