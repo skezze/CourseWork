@@ -21,8 +21,6 @@ public class Scheduler implements ITime {
         this.cpu = new CPU(Configuration.coreCount);
         this.memScheduler = new MemScheduler();
         this.clockGenerator = new ClockGenerator();
-
-        //this.clockGenerator.addListener(cpu);
         this.clockGenerator.addListener(this);
     }
 
