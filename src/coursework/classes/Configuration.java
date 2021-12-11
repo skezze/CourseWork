@@ -1,7 +1,7 @@
 package coursework.classes;
 
 public class Configuration {
-    public static final int coreCount = 2;
+    public static final int coreCount = 6;
     public static int memory = 2048;
     public static int minValue = 8;
     public static int initPCount = 12;

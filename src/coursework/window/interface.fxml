@@ -8,9 +8,8 @@
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <items>
-                <Button fx:id="pauseBTN" disable="true" mnemonicParsing="false" onAction="#pauseBTN_Click" prefHeight="26.0" prefWidth="239.0" text="Pause" />
-                <Button fx:id="runBTN" mnemonicParsing="false" onAction="#runBTN_Click" prefHeight="26.0" prefWidth="272.0" text="Run" />
-                <Button fx:id="stopBTN" disable="true" mnemonicParsing="false" onAction="#stopBTN_Click" prefHeight="26.0" prefWidth="249.0" text="Stop" />
+                <Button fx:id="runBTN" mnemonicParsing="false" onAction="#runBTN_Click" prefHeight="26.0" prefWidth="391.0" text="Run" />
+                <Button fx:id="stopBTN" disable="true" mnemonicParsing="false" onAction="#stopBTN_Click" prefHeight="26.0" prefWidth="391.0" text="Stop" />
             </items>
         </ToolBar>
     </top>
@@ -28,16 +27,7 @@
                         </TableView>
                     </content>
                 </Tab>
-                <Tab text="Rejected">
-                    <content>
-                        <TableView fx:id="rejectedTable" prefHeight="400.0" prefWidth="195.0" tableMenuButtonVisible="true" >
-                            <columnResizePolicy>
-                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                            </columnResizePolicy>
-                        </TableView>
-                    </content>
-                </Tab>
-                <Tab text="Done">
+                <Tab text="Dones">
                     <content>
                         <TableView fx:id="doneTable" prefHeight="400.0" prefWidth="195.0" tableMenuButtonVisible="true" >
                             <columnResizePolicy>

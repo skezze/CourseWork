@@ -17,18 +17,15 @@ public class Controller {
     private void initialize()
     {
         queueTable.getColumns().setAll(genQTable());
-        rejectedTable.getColumns().setAll(genQTable());
         doneTable.getColumns().setAll(genQTable());
     }
     @FXML
     TableView<Process> queueTable;
     @FXML
-    TableView<Process> rejectedTable;
-    @FXML
     TableView<Process> doneTable;
 
     ObservableList<Process> qTableList = FXCollections.observableArrayList();
-    ObservableList<Process> rTableList = FXCollections.observableArrayList();
+    ObservableList<Process> cTableList = FXCollections.observableArrayList();
     ObservableList<Process> dTableList = FXCollections.observableArrayList();
 
     private ArrayList<TableColumn<Process, String>> genQTable()
@@ -72,62 +69,37 @@ public class Controller {
         qTableList.setAll(q.getQueue());
         queueTable.setItems(qTableList);
         queueTable.refresh();
-
-        rTableList.setAll(q.getRejectedQueue());
         dTableList.setAll(a);
-
-        rejectedTable.setItems(rTableList);
-        rejectedTable.refresh();
         doneTable.setItems(dTableList);
         doneTable.refresh();
     }
     @FXML
     Button runBTN;
     @FXML
-    Button pauseBTN;
-    @FXML
     Button stopBTN;
 
     @FXML
     protected void runBTN_Click()
     {
-
-        if(!Main.emuThread.isAlive())
             Main.emuThread.start();
-        else
-            Main.emuThread.resume();
 
         runBTN.setDisable(true);
-        pauseBTN.setDisable(false);
-        stopBTN.setDisable(true);
-    }
-
-    @FXML
-    protected void pauseBTN_Click()
-    {
-        if(Main.emuThread.isAlive())
-            Main.emuThread.suspend();
-
-        pauseBTN.setDisable(true);
-        runBTN.setDisable(false);
         stopBTN.setDisable(false);
     }
 
     @FXML
     protected void stopBTN_Click()
     {
-        if(Main.emuThread.isAlive())
             Main.emuThread.stop();
 
         MemScheduler.clearMem();
         ClockGenerator.clearTime();
-        Main.emuThread = new Thread(new TLauncher());
+        Main.emuThread = new Thread(new Launcher());
         queueTable.setItems(null);
-        rejectedTable.setItems(null);
         doneTable.setItems(null);
 
-        pauseBTN.setDisable(true);
         runBTN.setDisable(false);
+        stopBTN.setDisable(true);
     }
 
 }

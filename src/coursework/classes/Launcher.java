@@ -1,6 +1,6 @@
 package coursework.classes;
 
-public class TLauncher implements Runnable {
+public class Launcher implements Runnable {
     public static Scheduler sc;
 
     @Override

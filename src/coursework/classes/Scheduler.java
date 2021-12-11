@@ -66,12 +66,6 @@ public class Scheduler implements ITime {
         }
     }
 
-    private void clearOutdated()
-    {
-        if(ClockGenerator.getTick()% Configuration.rmOldPIterator ==0) {
-            queue.cancelOutdated();
-        }
-    }
 
     private void setJobToCPU()
     {
@@ -89,7 +83,6 @@ public class Scheduler implements ITime {
 
     @Override
     public void timerStep() {
-        clearOutdated();
         setJobToCPU();
         addJob();
     }
