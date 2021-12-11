@@ -34,7 +34,7 @@ public class ClockGenerator extends TimerTask {
         }
     }
 
-    public void addListener(Scheduler listener)
+    public void addListener(ITime listener)
     {
         listenersList.add(listener);
     }

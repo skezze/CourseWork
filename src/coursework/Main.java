@@ -24,7 +24,7 @@ public class Main extends Application {
         emuThread = new Thread(new coursework.classes.TLauncher());
 
 
-        stage.setTitle("VTaskViewer");
+        stage.setTitle("coursework");
         stage.setScene(new Scene(root, 800, 500));
         stage.show();
 
