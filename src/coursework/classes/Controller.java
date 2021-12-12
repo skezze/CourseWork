@@ -14,30 +14,28 @@ import java.util.ArrayList;
 
 public class Controller {
     @FXML
-    private void initialize()
-    {
+    private void initialize() {
         queueTable.getColumns().setAll(genQTable());
         doneTable.getColumns().setAll(genQTable());
     }
+
     @FXML
     TableView<Process> queueTable;
     @FXML
     TableView<Process> doneTable;
 
     ObservableList<Process> qTableList = FXCollections.observableArrayList();
-    ObservableList<Process> cTableList = FXCollections.observableArrayList();
     ObservableList<Process> dTableList = FXCollections.observableArrayList();
 
-    private ArrayList<TableColumn<Process, String>> genQTable()
-    {
-        TableColumn<Process, String> idColumn= new TableColumn<>("ID");
-        TableColumn<Process, String> nameColumn= new TableColumn<>("Name");
-        TableColumn<Process, String> priorColumn= new TableColumn<>("Priority");
-        TableColumn<Process, String> statusColumn= new TableColumn<>("Status");
+    private ArrayList<TableColumn<Process, String>> genQTable() {
+        TableColumn<Process, String> idColumn = new TableColumn<>("ID");
+        TableColumn<Process, String> nameColumn = new TableColumn<>("Name");
+        TableColumn<Process, String> priorColumn = new TableColumn<>("Priority");
+        TableColumn<Process, String> statusColumn = new TableColumn<>("Status");
         TableColumn<Process, String> tickColumn = new TableColumn<>("TickWorks");
-        TableColumn<Process, String> memColumn= new TableColumn<>("Memory");
-        TableColumn<Process, String> timeInColumn= new TableColumn<>("TimeIn");
-        TableColumn<Process, String> burstColumn= new TableColumn<>("BursTime");
+        TableColumn<Process, String> memColumn = new TableColumn<>("Memory");
+        TableColumn<Process, String> timeInColumn = new TableColumn<>("TimeIn");
+        TableColumn<Process, String> burstColumn = new TableColumn<>("BursTime");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         priorColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
@@ -64,8 +62,7 @@ public class Controller {
         return _tmp;
     }
 
-    public void updateTable(Queue q, ArrayList<Process> a)
-    {
+    public void updateTable(Queue q, ArrayList<Process> a) {
         qTableList.setAll(q.getQueue());
         queueTable.setItems(qTableList);
         queueTable.refresh();
@@ -73,24 +70,23 @@ public class Controller {
         doneTable.setItems(dTableList);
         doneTable.refresh();
     }
+
     @FXML
     Button runBTN;
     @FXML
     Button stopBTN;
 
     @FXML
-    protected void runBTN_Click()
-    {
-            Main.emuThread.start();
+    protected void runBTN_Click() {
+        Main.emuThread.start();
 
         runBTN.setDisable(true);
         stopBTN.setDisable(false);
     }
 
     @FXML
-    protected void stopBTN_Click()
-    {
-            Main.emuThread.stop();
+    protected void stopBTN_Click() {
+        Main.emuThread.interrupt();
 
         MemScheduler.clearMem();
         ClockGenerator.clearTime();

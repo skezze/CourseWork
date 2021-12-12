@@ -13,17 +13,15 @@ public class Utils {
         return l + random.nextInt(r - l + 1);
     }
 
-    public static String getRandString(int size)
-    {
+    public static String getRandString(int size) {
         String qwerty = "qwertyuiopasdfghjklzxcvbnm";
         char[] _tmp = new char[size];
-        for(int i = 0; i<_tmp.length-1;i++)
-            _tmp[i]=qwerty.charAt(getRandInt(qwerty.length()-1));
+        for (int i = 0; i < _tmp.length - 1; i++)
+            _tmp[i] = qwerty.charAt(getRandInt(qwerty.length() - 1));
         return new String(_tmp);
     }
 
-    public static boolean getRandBool()
-    {
+    public static boolean getRandBool() {
         return random.nextBoolean();
     }
 

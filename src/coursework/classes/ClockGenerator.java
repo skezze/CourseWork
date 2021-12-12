@@ -9,33 +9,36 @@ public class ClockGenerator extends TimerTask {
     ArrayList<ITime> listenersList = new ArrayList<>();
 
     private static int tick;
+
     public static int getTick() {
         return tick;
     }
-    public static void TickUP(){
+
+    public static void TickUP() {
         tick++;
     }
-    public static void clearTime(){tick =0;}
+
+    public static void clearTime() {
+        tick = 0;
+    }
 
     @Override
     public void run() {
-        while (true)
-        {
+        while (true) {
             try {
-                Thread.sleep(1000,Configuration.tickIncrement);
+                Thread.sleep(1000, Configuration.tickIncrement);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             TickUP();
 
-            for(ITime listener : listenersList)
+            for (ITime listener : listenersList)
                 listener.timerStep();
 
         }
     }
 
-    public void addListener(ITime listener)
-    {
+    public void addListener(ITime listener) {
         listenersList.add(listener);
     }
 }

@@ -13,15 +13,16 @@ import java.io.IOException;
 public class Main extends Application {
     public static Thread emuThread;
     public static Controller controller;
+
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("window/interface.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("window/interface.fxml"));
         Parent root = loader.load();
-        controller =  loader.getController();
+        controller = loader.getController();
         emuThread = new Thread(new coursework.classes.Launcher());
 
 
@@ -38,8 +39,8 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        if(emuThread.isAlive())
-            emuThread.stop();
+        if (emuThread.isAlive())
+            emuThread.interrupt();
     }
 
 }

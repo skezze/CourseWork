@@ -26,22 +26,19 @@ public class Scheduler implements ITime {
         this.clockGenerator.addListener(this);
     }
 
-    public void Start()
-    {
+    public void Start() {
         preLaunchInit();
         this.clockGenerator.run();
     }
 
-    private void preLaunchInit()
-    {
-        MemScheduler.add(new MemoryBlock(0,100,null));
+    private void preLaunchInit() {
+        MemScheduler.add(new MemoryBlock(0, 100, null));
 
         queue.Add(Configuration.initPCount);
     }
 
-    private void addJob()
-    {
-        if(Utils.getRandBool()) {
+    private void addJob() {
+        if (Utils.getRandBool()) {
             queue.Add(Utils.getRandInt(Configuration.minValue));
         }
         updateTable();
@@ -50,26 +47,22 @@ public class Scheduler implements ITime {
 
     @Override
     public String toString() {
-        return "Scheduler{\n"+cpu+'\n'+memScheduler+'\n'+queue+"\nDone:"+doneProcesses+"\n}";
+        return "Scheduler{\n" + cpu + '\n' + memScheduler + '\n' + queue + "\nDone:" + doneProcesses + "\n}";
     }
 
-    public static void PDone(Process process)
-    {
-        if(Utils.getRandBool()) {
+    public static void PDone(Process process) {
+        if (Utils.getRandBool()) {
             process.setStatus(Status.Finished);
             doneProcesses.add(process);
-        }
-        else
-        {
+        } else {
             process.setStatus(Status.Waiting);
             queue.addProcess(process);
         }
     }
 
 
-    private void setJobToCPU()
-    {
-        for (int i = 0; i< Configuration.coreCount; i++) {
+    private void setJobToCPU() {
+        for (int i = 0; i < Configuration.coreCount; i++) {
             int _tmpInt = cpu.getFreeCore();
             if (_tmpInt >= 0) {
                 cpu.setCoreJob(_tmpInt, queue.getNextProcess());
@@ -77,9 +70,9 @@ public class Scheduler implements ITime {
         }
     }
 
-    public void updateTable()
-    {
-        Main.controller.updateTable(queue,doneProcesses);}
+    public void updateTable() {
+        Main.controller.updateTable(queue, doneProcesses);
+    }
 
     @Override
     public void timerStep() {

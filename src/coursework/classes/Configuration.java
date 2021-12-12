@@ -11,9 +11,9 @@ public class Configuration {
     public static float ZombieDiv = 2f;
     public static int minProcName = 2;
     public static int maxProcName = 7;
-    public static int minTickWork =3;
-    public static int maxTickWork =20;
-    public static int minMemsize =4;
-    public static int maxMemsize =300;
-    public static int tickIncrement= 1;
+    public static int minTickWork = 3;
+    public static int maxTickWork = 20;
+    public static int minMemsize = 4;
+    public static int maxMemsize = 300;
+    public static int tickIncrement = 1;
 }
