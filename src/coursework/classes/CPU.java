@@ -12,6 +12,10 @@ public class CPU implements ITime {
             cores[i] = new Core();
     }
 
+    public Core[] getCores() {
+        return cores;
+    }
+
     @Override
     public String toString() {
         String _tmp = " ";

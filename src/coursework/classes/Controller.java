@@ -25,6 +25,7 @@ public class Controller {
     TableView<Process> doneTable;
 
     ObservableList<Process> qTableList = FXCollections.observableArrayList();
+    ObservableList<Process> cTableList = FXCollections.observableArrayList();
     ObservableList<Process> dTableList = FXCollections.observableArrayList();
 
     private ArrayList<TableColumn<Process, String>> genQTable() {
@@ -86,7 +87,7 @@ public class Controller {
 
     @FXML
     protected void stopBTN_Click() {
-        Main.emuThread.interrupt();
+        Main.emuThread.stop();
 
         MemScheduler.clearMem();
         ClockGenerator.clearTime();
