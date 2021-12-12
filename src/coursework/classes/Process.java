@@ -1,12 +1,14 @@
 package coursework.classes;
 
+import java.util.Comparator;
+
 public class Process {
-    private final int id;        //after create
-    private final String name;    //rand
-    private final int priority;  //rand + on work
+    private int id;        //after create
+    private String name;    //rand
+    private int priority;  //rand + on work
     private Status status;    //rand + on work
-    private final int tickWorks;       //rand
-    private final int memory;     //rand
+    private int tickWorks;       //rand
+    private int memory;     //rand
     private final int timeIn;     //after create
     private int bursTime;   //on work
 
@@ -33,12 +35,28 @@ public class Process {
     //________Getters________\\
 
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
     public int getTickWorks() {
         return tickWorks;
     }
 
     public int getMemory() {
         return memory;
+    }
+
+    public int getTimeIn() {
+        return timeIn;
     }
 
     public int getBursTime() {
@@ -48,6 +66,11 @@ public class Process {
     public Status getStatus() {
         return status;
     }
+
+
+    public static Comparator<Process> byPriority = Comparator.comparingInt(o -> o.priority);
+
+    //________toString________\\
 
     @Override
     public String toString() {

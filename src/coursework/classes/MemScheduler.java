@@ -4,7 +4,7 @@ package coursework.classes;
 import java.util.ArrayList;
 
 public class MemScheduler {
-    private static final ArrayList<MemoryBlock> memoryBlocks = new ArrayList<>();
+    private static ArrayList<MemoryBlock> memoryBlocks = new ArrayList<>();
 
     public static int SearchMB(int size) {
         memoryBlocks.sort(MemoryBlock.byEnd);
