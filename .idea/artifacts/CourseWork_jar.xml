@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/CourseWork_jar</output-path>
     <root id="archive" name="CourseWork.jar">
       <element id="module-output" name="CourseWork" />
-      <element id="library" level="application" name="javafx-sdk-17.0" />
       <element id="extracted-dir" path="$PATH_TO_FX$/javafx-swt.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PATH_TO_FX$/javafx.web.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PATH_TO_FX$/javafx.base.jar" path-in-jar="/" />
